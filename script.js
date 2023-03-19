@@ -5,25 +5,37 @@ btn.addEventListener("click", () => {
   const input = document.querySelector("#input").value;
   const p = document.createElement("p");
 
-  if (input % 3 === 0 && input % 5 === 0) {
-    console.log(`Input sebelum : ${input}`);
-    container.append(p);
-    p.innerHTML = "FizzBuzz!";
-  } else if (input % 5 === 0) {
-    console.log(`Input sebelum : ${input}`);
-    container.append(p);
-    p.innerHTML = "Buzz!";
-  } else if (input % 3 === 0) {
-    console.log(`Input sebelum : ${input}`);
-    container.append(p);
-    p.innerHTML = "Fizz!";
+  if (!isNaN(input) && input != 0) {
+    if (input % 3 === 0 && input % 5 === 0) {
+      console.log(input);
+      container.append(p);
+      p.innerHTML = "FizzBuzz!";
+      remove();
+    } else if (input % 5 === 0) {
+      console.log(input);
+      container.append(p);
+      p.innerHTML = "Buzz!";
+      remove();
+    } else if (input % 3 === 0) {
+      console.log(input);
+      container.append(p);
+      p.innerHTML = "Fizz!";
+      remove();
+    } else {
+      console.log(input);
+      container.append(p);
+      p.innerHTML = input;
+      remove();
+    }
   } else {
-    console.log(`Input sebelum : ${input}`);
     container.append(p);
-    p.innerHTML = input;
+    p.innerHTML = "invalid input";
+    p.style.color = "red";
+    remove();
   }
 });
 
-// container.append(p);
-// p.innerHTML = "invalid input";
-// p.style.color = "red";
+function remove() {
+  const input = document.querySelector("#input");
+  input.value = "";
+}
